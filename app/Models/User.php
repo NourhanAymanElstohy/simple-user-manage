@@ -20,6 +20,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'username',
+        'phone',
+        'status',
+        'type_id'
     ];
 
     /**
@@ -40,4 +44,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function type()
+    {
+        $this->belongsTo(Type::class);
+    }
+
+    public function accessrights()
+    {
+        $this->belongsToMany(Accessright::class);
+    }
 }
