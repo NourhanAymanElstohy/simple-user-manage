@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Accessright;
+use App\Models\Type;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -14,7 +16,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
+        $superAdmin = User::create([
             'name' => "Sys admin",
             'username' => "admin",
             'email' => 'admin@gmail.com',
@@ -23,5 +25,7 @@ class UserSeeder extends Seeder
             'status' => 1,
             'type_id' => 1
         ]);
+
+        $superAdmin->accessrights()->attach(Type::findOrFail(1)->accessrights->pluck('id'));
     }
 }

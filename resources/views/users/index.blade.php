@@ -29,8 +29,9 @@
                             <td>{{ $user->phone }}</td>
                             <td>{{ $user->status }}</td>
                             <td>{{ $user->type->name }}</td>
-                            <td>@foreach ($user->accessrights as $access) {{ $access->access_title }},@endforeach</td>
-                            <td>
+                            <td>{{ $user->accessrights[0]->access_title }}, ...</td>
+                            <td style="width: 20%">
+                                <a class="btn btn-sm btn-primary" href="{{route('users.show', ['user' => $user->id])}}">Show</a>
                                 @if (Auth::user()->type->name == 'admin' || $user->id == Auth::id())    
                                     <a href="{{route('users.edit',['user' => $user->id])}}"
                                         class="btn btn-sm btn-warning">Edit</a>
@@ -55,6 +56,7 @@
                             </td>
                         </tr>
                     @endforeach
+                    {{$users->links()}}
                 </tbody>
             </table>
         </div>
