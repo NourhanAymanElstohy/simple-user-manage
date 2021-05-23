@@ -70,6 +70,9 @@
                             <button type="submit" class="btn btn-primary">
                                 Create
                             </button>
+                            <a href="{{route('users.index')}}" class="btn btn-secondary">
+                                Cancel
+                            </a>
                         </div>
                     </div>
                 </form>

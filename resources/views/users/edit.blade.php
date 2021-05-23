@@ -45,32 +45,37 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Type') }}</label>
+                    @if (Auth::id() != $user->id)
+                        <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Type') }}</label>
 
-                        <div class="col-md-6">
-                            <select name="type_id" id="types_list" class="form-control" required>
-                                <option value="" disabled selected>-- Select Type --</option>
-                                @foreach ($types as $type)
-                                    <option value="{{$type->id}}" {{ old('type_id') == $type->id ? "selected" :""}}>{{$type->name}}</option>
-                                @endforeach
-                            </select>
+                            <div class="col-md-6">
+                                <select name="type_id" id="types_list" class="form-control" required>
+                                    <option value="" disabled selected>-- Select Type --</option>
+                                    @foreach ($types as $type)
+                                        <option value="{{$type->id}}" {{ old('type_id') == $type->id ? "selected" :""}}>{{$type->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Access Rights') }}</label>
+                        <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Access Rights') }}</label>
 
-                        <div class="col-md-6">
-                            <select multiple data-live-search="true" name="access_ids[]" id="access_rights" class="form-control" required>
-                                
-                            </select>
+                            <div class="col-md-6">
+                                <select multiple data-live-search="true" name="access_ids[]" id="access_rights" class="form-control" required>
+                                    
+                                </select>
+                            </div>
                         </div>
-                    </div>
+                    @endif
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
                             <button type="submit" class="btn btn-primary">
-                                Create
+                                Save Changes
                             </button>
+                            <a href="{{route('users.index')}}" class="btn btn-secondary">
+                                Cancel
+                            </a>
                         </div>
                     </div>
                 </form>

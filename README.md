@@ -91,3 +91,9 @@ php artisan key:generate
 php artisan migrate:fresh --seed
 php artisan serve
 ```
+
+## Admin User
+
+Login with admin account
+email: admin@gmail.com
+password: 12345678
