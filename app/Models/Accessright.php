@@ -13,11 +13,11 @@ class Accessright extends Model
 
     public function types()
     {
-        $this->belongsToMany(Type::class);
+        return $this->belongsToMany(Type::class)->withTimestamps();
     }
 
     public function users()
     {
-        $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
 }

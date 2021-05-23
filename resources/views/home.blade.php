@@ -11,6 +11,11 @@
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
+                            Welcome to User Management system
+                            Your Access Rights are: <br>
+                            @foreach (Auth::user()->accessrights as $access)
+                                {{$access->acess_title}} <br>
+                            @endforeach
                         </div>
                     @endif
 

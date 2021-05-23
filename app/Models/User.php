@@ -47,11 +47,11 @@ class User extends Authenticatable
 
     public function type()
     {
-        $this->belongsTo(Type::class);
+        return $this->belongsTo(Type::class);
     }
 
     public function accessrights()
     {
-        $this->belongsToMany(Accessright::class);
+        return $this->belongsToMany(Accessright::class)->withTimestamps();
     }
 }
