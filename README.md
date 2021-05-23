@@ -58,6 +58,19 @@ Run the database migrations and seed (**Set the database credentials in .env bef
 php artisan migrate:fresh --seed
 ```
 
+Go to [mailtrap](https://mailtrap.io/) , create app and get mailtrap credentials (**username and password**) in .env
+
+```
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=587
+MAIL_USERNAME=************
+MAIL_PASSWORD=************
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=nour@gmail.com
+MAIL_FROM_NAME="${APP_NAME}"
+```
+
 Start the local development server
 
 ```
